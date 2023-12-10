@@ -6,7 +6,9 @@ export async function POST(req: any, res: any) {
   const MessagingResponse = require('twilio').twiml.MessagingResponse; 
   var messageResponse = new MessagingResponse();
   try {
-    const { messages } = await req.json()
+    // const sentMessage = req.body.Body || '';
+    // const { messages } = await req.json()
+    const  messages  = req.body.Body|| ''
     const lastMessage = messages.length > 1 ? messages[messages.length - 1] : messages[0]
     const context = await getContext(lastMessage.content, '', 10000, 0.7, false) as ScoredPineconeRecord[]
     messageResponse.context
