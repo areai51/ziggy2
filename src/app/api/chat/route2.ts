@@ -11,7 +11,7 @@ const openai = new OpenAIApi(config)
 // IMPORTANT! Set the runtime to edge
 export const runtime = 'edge'
 
-export async function POST(req: Request, res: Response) {
+export async function POST(req:any, res:any) {
   const MessagingResponse = require('twilio').twiml.MessagingResponse; 
   var messageResponse = new MessagingResponse();
 
